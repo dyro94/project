@@ -1,0 +1,15 @@
+   print "Enter first name\n";
+   $first=<>;
+   chomp $first;
+   print "Enter last name\n";
+   $last=<>;
+   chomp $last;
+   @array=($first,$last);
+   print "@array\n";
+  $hash{first}=$first;
+   $hash{last}=$last;
+   @array=%hash;
+   print "@array\n";
+
+ 
+ 
