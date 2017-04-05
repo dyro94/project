@@ -1,0 +1,10 @@
+       print "Enter a text";
+       $text=<>;
+       chomp $text;
+       print "using no command:$text\n";
+       print "using\\l command:\l$text\n";
+       print "using\\u command:\u$text\n";
+       print "using\\L command:\L$text\n";
+       print "using\\U command:\U$text:w:\n";
+       print "using\\Q command:\Q$text\E\n";
+

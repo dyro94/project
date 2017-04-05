@@ -1,0 +1,6 @@
+      @numbers=(1,5,9,3.14159,2);
+      print "With Interpolation:@numbers\n";
+      print "Without Interpolation:",@numbers,"\n";
+      print "Without Interpolation:".@numbers."\n";
+      $"="\n";
+      print"@numbers";

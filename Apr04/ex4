@@ -1,0 +1,4 @@
+      my $var="hi my name is rohan";
+      print $var."\n";
+      print $var.'\n';
+

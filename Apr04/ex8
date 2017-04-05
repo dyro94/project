@@ -1,0 +1,11 @@
+      use strict;
+      use warnings;
+      my @text=qw(my name is rohan);
+      print "@text\n";
+      $text[3]="soham";
+      print "@text\n";
+      $text[@text]='fozzi';
+      print "@text\n";
+      my $lenght=@text;
+      print " array lenght:",$length,"\n";
+
