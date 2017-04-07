@@ -1,3 +1,8 @@
+use warnings;
+use strict;
+
+
+
 print "enter the text-->\n";
      
 chomp(my $var=<>);
@@ -14,7 +19,7 @@ chomp(my $var=<>);
                 exit; 
            }
      }
-     if($off){
+     if(our $off){
           my $ch1='x';
           my $res1=index($off,$ch1);
         if($res1>-1){
@@ -25,7 +30,7 @@ chomp(my $var=<>);
              exit;
               }
               }
-            if($off1){
+            if(our $off1){
           my $ch2='c';
           my $res2=index($off1,$ch2);
         if($res2>-1){
@@ -36,7 +41,7 @@ chomp(my $var=<>);
              exit;
           }
            }   
-     if($off2){
+     if(our $off2){
           my $ch3='e';
           my $res3=index($off2,$ch3);
         if($res3>-1){
@@ -47,7 +52,7 @@ chomp(my $var=<>);
              exit;
           }
            }
-      if($off3){
+      if(our $off3){
           my $ch4='l';
           my $res4=index($off3,$ch4);
         if($res4>-1){
@@ -58,7 +63,7 @@ chomp(my $var=<>);
               exit;
           }
            }
-  if($off4){
+  if(our $off4){
           my $ch5='e';
           my $res5=index($off4,$ch5);
         if($res5>-1){
@@ -69,7 +74,7 @@ chomp(my $var=<>);
              exit;
           }
            }
-      if($off5){
+      if(our $off5){
           my $ch6='r';
           my $res6=index($off5,$ch6);
         if($res6>-1){
@@ -80,7 +85,7 @@ chomp(my $var=<>);
              exit;
           }
          }
-      if($off6){
+      if(our $off6){
           my $ch7='o';
           my $res7=index($off6,$ch7);
         if($res7>-1){
@@ -91,7 +96,7 @@ chomp(my $var=<>);
              exit;
           }
 }
-      if($off7){
+      if(our $off7){
           my $ch8='n';
           my $res8=index($off7,$ch8);
         if($res8>-1){
