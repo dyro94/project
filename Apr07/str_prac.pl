@@ -17,7 +17,7 @@ NO
 Explanation:
 The string 'eoxiecreloiirpomn' has the word 'exceleron' but it does not satisfy the condition. So the output will be 'NO'
 
-
+=cut
 
 use warnings;
 use strict;
@@ -25,7 +25,7 @@ use strict;
 
 
 print "enter the text-->\n";
-=cut
+
      
 chomp(my $var=<>);
        
