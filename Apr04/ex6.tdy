@@ -1,0 +1,21 @@
+    use strict;
+    use warnings;
+
+    my %name = (
+        "rohan"   => "ghosh",
+        "tapan"   => "das",
+        "oshin"   => "dutta",
+        "soumita" => "mukherjee"
+    );
+
+    print "Enter your name..\n";
+    my $first = <STDIN>;
+    chomp $first;
+
+    if ( exists $name{$first} ) {
+        print "FUll NAME:$first $name{$first}";
+    }
+    else {
+        print "it does't exists\n";
+    }
+

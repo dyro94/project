@@ -1,0 +1,15 @@
+    use strict;
+    use warnings;
+    my @a = qw(a b c);
+    print "array1:@a\n";
+    my @b = qq(a b c);
+    print "array2:@b\n";
+    my @c = ( 'a', 'b', 'c' );
+    print "array3:@c\n";
+    my @d = qw('a','b','c');
+    print "array4:@d\n";
+    my @e = qw(011 012 013);
+    print "array5:@e\n";
+    my @f = ( 011, 012, 013 );
+    print "array6:@f\n";
+
