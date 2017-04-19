@@ -13,28 +13,29 @@
                     ['a','b','c'],
                     5]
  };
-=pod
+
+
 print "answer no 1-->\n";
 foreach my $i(keys %$ds){
   
   my $val=$ds->{$i};
       if( my @arr=@$val){
-           foreach my $i(@arr){
-            
+=pod          
+            for (my $i=0;$i<=#$arr;i++){
+                  
+        
+                   
+            if(my @a=@$arr[i]){
+               print "@a\n";
+            }else{
+   print "$arr[i]\n";
+ } 
          
-           
-               
-             if(my @a=@$i){
-                print "@a\n";
-             }else{
-   print "$i\n";
-}  
-         
-}
-
-}
 }
 =cut
+print "@arr\n";
+}
+}
 =pod
 print "answer no 2--->\n";
 my $hash_ref=$ds->{ghi}{lmn};
@@ -46,18 +47,45 @@ my $hash_ref=$ds->{ghi}{lmn};
        
 }
 print "$hash{ijk}\n";
-=cut
 
-print "answer no 3---->";
 
-print "$ds->{xyz}\n";
-#my $array_ref=$ds->{ghi}{xyz};
 
-=pod
+print "acess element b---->\n";
+
+
+my $array_ref=$ds->{xyz};
+
+
 my @arr=@$array_ref;
 my $arr_add=$arr[1];
 my @arr1=@$arr_add;
-print "$arr[1]\n";
+print "$arr1[1]\n";
+
+print "delete value 5---->\n";
+my $array_ref=$ds->{xyz};
+
+
+my @arr=@$array_ref;
+my $del=pop(@arr);
+print $del,"\n";
+print "@arr\n";
+
+print "add another key-valur pair---->\n";
+my $hash_ref=$ds->{ghi}{lmn};
+        my %hash=%$hash_ref;
+         $hash{rohan}='ghosh';
+          while((my $key,my $value)=each(%hash)){
+
+              print $key.",".$value."\n";
+           }
+
+print 'del key-value pair--->\n';
+   my %hash=%$ds;
+   delete($hash{'def'});
+     while((my $key,my $value)=each(%hash)){
+
+              print $key.",".$value."\n";
+           }
+
+
 =cut
-
-
