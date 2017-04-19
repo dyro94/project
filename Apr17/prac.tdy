@@ -1,0 +1,36 @@
+use strict;
+use warnings;
+my @arr = ( { "cat" => 10 }, { "dog" => 20 } );
+
+=pod
+each my $i(0..$#arr){
+ my $var= $arr[$i];
+print "$var\n";
+#my $ref=$arr[i];
+#print"$ref->{cat}\n";
+#print"$ref2->{dog}\n";
+}
+=pod
+foreach my $i(@arr){
+
+while((my $key,my $value)=each(%$i))
+{
+  print $key.",".$value."\n";
+}
+
+}
+
+=cut
+
+=pod
+foreach my $i(keys%$hash){
+#  print "$i:$$hash{$i}\n";
+print "$i:$hash->{$i}\n";
+}
+=cut
+
+for my $i (@arr) {
+    foreach my $j ( keys %$i ) {
+        print "$j:$i->{$j}\n";
+    }
+}

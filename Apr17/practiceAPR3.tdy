@@ -1,0 +1,118 @@
+use strict;
+use warnings;
+
+=pod
+  my @arr=('rohan','soham','rohit');
+   my $i=10;
+   foreach my $i(@arr){
+        print" $i\nprint";
+       }
+     print "$i\n";
+
+  my %hash=(
+
+      "rohan"=>"ghosh",
+      "soham"=>"ghosh",
+      "tapan"=>"das"
+     );
+my @has=@hash{'ghosh','das'};
+
+print "@has\n"; 
+
+my @arr=('rohan','soham','mitul');
+my $ref=\@arr;
+print "$ref\n";
+my @arr1=@$ref;
+print "@arr1\n";
+foreach my $i(@arr1){
+  print "$i\n";
+ }
+
+foreach my $i(0..$#$ref){
+ print "$ref->[$i]\n";
+
+}
+
+my %hash=(
+         "rohan"=>"ghosh",
+         "soham"=>"ghosh",
+         "tapan"=>"das"
+       );
+  my $ref=\%hash;
+  my %copy=%$ref;
+my  $var=$ref->{rohan};
+print "$var\n";
+  while ((my $key,my $value)=each(%copy)){
+print $key.",".$value."\n";
+         } 
+
+my @arr=(
+     [1, 2, 3],
+     [4, 5, 6],
+     [1, 2, 3, 4]
+  );
+ my $ref1=$arr[0];
+ my $ref2=$arr[1];
+ my $ref3=$arr[2];
+ print "$ref3->[3]\n";
+my $ref=\@arr;
+print "$ref->[2]->[3]\n";
+       
+my $hash={
+    rohan=>{cat=>10,dog=>20},
+     soham=>{lion=>30,tiger=>40}
+    };
+
+  print $hash->{rohan}{dog},"\n";
+
+
+my $scalar={
+     monday=>{
+              jim=>[3,4],
+              mary=>[4]        
+           },
+ 
+    tuesday=>{
+         jim=>[3,5,1],
+         mary=>[1,1,1,1,9]
+         }
+        };
+
+         
+
+
+my $var=$scalar->{tuesday}{mary};
+ print "$var\n";
+my $arr=@$var;
+my $total=0;
+foreach (@$var){
+ $total+=$_;
+}
+
+print "$arr\n";
+print "$total\n";
+my $name=chr(79).chr(115).chr(90).chr(87);
+print "$name\n";
+my @values=(ord('a'),ord('c'),ord('d'));
+print @values;
+
+my $word="yololmfdacmdslndjlvnlvllnyolofd.mcDCMM";
+my $first=index $word,'yolo';
+print "$first\n";
+my $second=index $word,'yolo',$first+1;
+print "$second\n";
+my $last=rindex $word,'yolo';
+print "$last\n";
+my $second_last=rindex $word,'yolo',$last-1;
+print "$second_last\n";
+
+my $str="ThiS iS rOhAn";
+my $str1=lcfirst($str);
+print "$str1\n";
+=cut
+
+print int( 1 / 21637836 ), "\n";
+print hex(0x93B), "\n";
+print oct(077), "\n";
+print log(10), "\n";
+print sqrt(25), "\n";
