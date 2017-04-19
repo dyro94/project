@@ -1,0 +1,16 @@
+use warnings;
+use strict;
+my $sep;
+
+if ( $^O eq "unix" ) {
+    $sep = ';';
+}
+else {
+    $sep = ':';
+}
+my $path = $ENV{PATH};
+print "$path\n";
+my @dirs = split $sep, $path;
+print "Number of directories:", scalar(@dirs), "\n";
+$" = "\n";
+print "directories:\n @dirs\n";
