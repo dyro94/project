@@ -30,7 +30,7 @@ open( my $fh, '<:encoding(UTF-8)', $file_path )
 my @place;
 my @time;
 my @distance;
-my %data_structure;
+#my %data_structure;
 
 my $count = 0;
 while ( my $row = <$fh> ) {
@@ -51,7 +51,8 @@ while ( my $row = <$fh> ) {
     }
 
 }
-
+close $fh;
+my %data_structure;
 my @array_ref;
 foreach my $i ( 0 .. $#place ) {
 
@@ -108,9 +109,10 @@ info_1( $dis_1, $dis_2 );
 sub info_1 {
     my $district  = $_[0];
     my $district1 = $_[1];
-
+    
+    if($data_structure{$district} and $data_structure{$district1}    ){
     my $ref_add = $data_structure{$district};
-    print "$ref_add\n";
+    
     my $ref_add1   = $data_structure{$district1};
     my $hour_min_1 = $ref_add->[0];
 
@@ -177,4 +179,9 @@ sub info_1 {
     }
 
 }
-close $fh;
+
+else
+{
+  print "Sorry!!this District is not in database\n";
+}
+}
