@@ -49,15 +49,15 @@ while ( my $row = <$fh> ) {
         @distance = split /;/, $row;
 
     }
-    close $fh;
+
 }
 
-my @array;
+my @array_ref;
 foreach my $i ( 0 .. $#place ) {
 
     my $value = [ $time[$i], $distance[$i] ];
-    $array[$i] = $value;
-    $data_structure{"$place[$i]"} = $array[$i];
+    $array_ref[$i] = $value;
+    $data_structure{"$place[$i]"} = $array_ref[$i];
 }
 
 =pod
@@ -109,7 +109,8 @@ sub info_1 {
     my $district  = $_[0];
     my $district1 = $_[1];
 
-    my $ref_add    = $data_structure{$district};
+    my $ref_add = $data_structure{$district};
+    print "$ref_add\n";
     my $ref_add1   = $data_structure{$district1};
     my $hour_min_1 = $ref_add->[0];
 
@@ -118,9 +119,10 @@ sub info_1 {
     my $hour_min_2 = $ref_add1->[0];
 
     my @hour_min_2 = split /:/, $hour_min_2;
-    my $hour1      = $hour_min_1[0];
-    my $hour2      = $hour_min_2[0];
-    my $min1       = $hour_min_1[1];
+
+    my $hour1 = $hour_min_1[0];
+    my $hour2 = $hour_min_2[0];
+    my $min1  = $hour_min_1[1];
 
     my $min2 = $hour_min_2[1];
     my $min;
@@ -175,4 +177,4 @@ sub info_1 {
     }
 
 }
-
+close $fh;
