@@ -145,25 +145,26 @@ sub time_distance_duration {
     my $place  = $_[0];
     my $option = $_[1];
     if ( $option eq 1 ) {
-    $parameter =sub_question_1($place);
+        $parameter = sub_question_1($place);
     }
     if ( $option eq 2 ) {
-     $parameter =sub_question_2($place);
+        $parameter = sub_question_2($place);
     }
     if ( $option eq 3 ) {
-        $parameter=sub_question_3($place);
+        $parameter = sub_question_3($place);
     }
 
     if ( $option eq 6 ) {
-       my $time_parameter= sub_question_1($place);
-       my $distance_parameter = sub_question_2($place);
-       my  $duration_parameter = sub_question_3($place);
+        my $time_parameter     = sub_question_1($place);
+        my $distance_parameter = sub_question_2($place);
+        my $duration_parameter = sub_question_3($place);
 
-	$parameter = { %$time_parameter, %$distance_parameter, %$duration_parameter };
+        $parameter =
+          { %$time_parameter, %$distance_parameter, %$duration_parameter };
 
     }
 
-Display( $place, $parameter );
+    Display( $place, $parameter );
 
     goto STATEMENT1;
 
@@ -177,6 +178,7 @@ sub sub_question_1 {
     print "Time of arrival from Bangalore to $place:$address->[0]\n";
     my $time = $address->[0];
     my %parameter = ( "time" => "$time" );
+
     #Display( $place, \%parameter );
     return \%parameter;
 
@@ -201,7 +203,7 @@ sub sub_question_2 {
     my %parameter = ( "distance" => "$final_distance" );
 
     #Display( $place, \%parameter );
-     return \%parameter;
+    return \%parameter;
 }
 
 sub sub_question_3 {
@@ -218,7 +220,8 @@ sub sub_question_3 {
         "hour" => "$hour",
         "min"  => "$min"
     );
-   # Display( $place, \%parameter );
+
+    # Display( $place, \%parameter );
     return \%parameter;
 
 }
@@ -246,7 +249,9 @@ sub Display {
         $distance = "NA";
     }
 
-    if (  defined ($data_structure{'hour'}) and defined($data_structure{'min'}) ) {
+    if (    defined( $data_structure{'hour'} )
+        and defined( $data_structure{'min'} ) )
+    {
         $hour = $data_structure{'hour'};
         $min  = $data_structure{'min'};
     }
@@ -279,87 +284,78 @@ sub table_display {
 
     );
     print $tb;
-   csv_file_write( $time, $distance, $hour, $min, $place_sub );
+    csv_file_write( $time, $distance, $hour, $min, $place_sub );
 }
 
 sub csv_file_write {
- my $time      = $_[0];
- my $distance  = $_[1];
- my $hour      = $_[2];
- my $min       = $_[3];
- my $place_sub = $_[4];
+    my $time      = $_[0];
+    my $distance  = $_[1];
+    my $hour      = $_[2];
+    my $min       = $_[3];
+    my $place_sub = $_[4];
 
- use Text::CSV;
- use Text::Table;
-     
+    use Text::CSV;
+    use Text::Table;
 
-my $csv = Text::CSV_XS->new({ sep_char => ',', eol => "\n" });
-     my  $file_path="/home/dyro/practice/project/Apr28/";
+    my $csv = Text::CSV_XS->new( { sep_char => ',', eol => "\n" } );
+    my $file_path = "/home/dyro/practice/project/Apr28/";
     open( my $fh, '>>:encoding(UTF-8)', "DistanceOut.csv" )
-	    or die "could not open  the file '$file_path'$!";
+      or die "could not open  the file '$file_path'$!";
 
-$csv->print( $fh, [ "START:END", "Distance", "Duraion of Journey","TIME Of Arrival"]);
-$csv->print( $fh, [ "BANGALORE:$place_sub", "$distance","$hour:$min","$time"  ] );
+    $csv->print( $fh,
+        [ "START:END", "Distance", "Duraion of Journey", "TIME Of Arrival" ] );
+    $csv->print( $fh,
+        [ "BANGALORE:$place_sub", "$distance", "$hour:$min", "$time" ] );
 
-close $fh;
+    close $fh;
 
 }
-
-
-
-
-
-
-
-
-
-
 
 sub question2 {
     print "enter  the first District---->\n";
     my $distance_1 = <>;
     chomp($distance_1);
-     my $dis_1=uc $distance_1;
+    my $dis_1 = uc $distance_1;
     print "enter the second District--->\n";
     my $distance_2 = <>;
     chomp($distance_2);
-     my $dis_2=uc $distance_2;
+    my $dis_2 = uc $distance_2;
 
-   
-    
-      my $ref_add = $data_structure{$dis_1};
+    my $ref_add = $data_structure{$dis_1};
 
     my $ref_add1 = $data_structure{$dis_2};
     if ( $ref_add and $ref_add1 ) {
 
-    info_1( $dis_1, $dis_2 );
-}else{
-  print "Invalid DISTRICT\n";
+        info_1( $dis_1, $dis_2 );
+    }
+    else {
+        print "Invalid DISTRICT\n";
         goto STATEMENT;
 
+    }
+}
 
-}
-}
 sub info_1 {
     my $district  = $_[0];
     my $district1 = $_[1];
   STATEMENT2: print
-      "What you want to know-->1>DISTANCE 2>DURATION 3>GO BACK 4>EXIT 5>SHOW ALL\n";
+"What you want to know-->1>DISTANCE 2>DURATION 3>GO BACK 4>EXIT 5>SHOW ALL\n";
     chomp( my $user_input = <> );
 
     if ( $user_input eq '1' ) {
-        show_all( $district, $district1,1 );
+        show_all( $district, $district1, 1 );
     }
     elsif ( $user_input eq '2' ) {
-        show_all( $district, $district1,2 );
+        show_all( $district, $district1, 2 );
     }
     elsif ( $user_input eq '3' ) {
         goto STATEMENT;
     }
     elsif ( $user_input eq '4' ) {
         exit;
-    }elsif($user_input eq '5'){
-       show_all($district,$district1,5);
+    }
+    elsif ( $user_input eq '5' ) {
+        show_all( $district, $district1, 5 );
     }
     else {
         print "Invalid input\n";
@@ -368,112 +364,106 @@ sub info_1 {
 
 }
 
-
-sub show_all{
+sub show_all {
     my $district  = $_[0];
     my $district1 = $_[1];
-    my $option=$_[2];
-   my $para_ref;
-if($option eq 1){
-$para_ref=sub_question2( $district, $district1 );
-}
-if ($option eq 2){
-  $para_ref=sub_question1( $district, $district1 );
-  }
+    my $option    = $_[2];
+    my $para_ref;
+    if ( $option eq 1 ) {
+        $para_ref = sub_question2( $district, $district1 );
+    }
+    if ( $option eq 2 ) {
+        $para_ref = sub_question1( $district, $district1 );
+    }
 
-if($option eq 5){
-    my $distance=sub_question2( $district, $district1 );
-    my $duration =sub_question1( $district, $district1);
-     
-     
-     $para_ref={%$distance,%$duration};
-    
-}
+    if ( $option eq 5 ) {
+        my $distance = sub_question2( $district, $district1 );
+        my $duration = sub_question1( $district, $district1 );
 
+        $para_ref = { %$distance, %$duration };
 
+    }
 
-Display_1($district,$district1,$para_ref);
+    Display_1( $district, $district1, $para_ref );
 
-goto STATEMENT2;
+    goto STATEMENT2;
 
 }
 
-sub Display_1{
-    my  $district1=$_[0];
-    my $district2=$_[1];
-    my $para_ref=$_[2];
-    my %data_structure=%$para_ref;
+sub Display_1 {
+    my $district1      = $_[0];
+    my $district2      = $_[1];
+    my $para_ref       = $_[2];
+    my %data_structure = %$para_ref;
     my $hour;
     my $min;
     my $distance;
-   
-   if(defined($data_structure{'hour'}) and defined($data_structure{'min'}) ){
-           $hour = $data_structure{'hour'};
-           $min = $data_structure{'min'};
-            
-   } else {
-           $hour = "NA";
-           $min = "NA";
-   }
 
-   if(defined($data_structure{'distance'})){
-       $distance = $data_structure{'distance'};
-   } else {
-       $distance="NA";
-   }
-   
-  table_display_1($district1,$district2,$hour,$min,$distance);
+    if (    defined( $data_structure{'hour'} )
+        and defined( $data_structure{'min'} ) )
+    {
+        $hour = $data_structure{'hour'};
+        $min  = $data_structure{'min'};
+
+    }
+    else {
+        $hour = "NA";
+        $min  = "NA";
+    }
+
+    if ( defined( $data_structure{'distance'} ) ) {
+        $distance = $data_structure{'distance'};
+    }
+    else {
+        $distance = "NA";
+    }
+
+    table_display_1( $district1, $district2, $hour, $min, $distance );
 }
 
+sub table_display_1 {
+    my $district1 = $_[0];
+    my $district2 = $_[1];
+    my $hour      = $_[2];
+    my $min       = $_[3];
+    my $distance  = $_[4];
 
+# my $header_ref="START:END\t","TIME DURATION\t","DISTANCE";
+# my $data_ref=["$district1:$district2\t","$hour hour $min min\t","$distance km"];
+    use Text::Table;
+    my $tb = Text::Table->new( "START:END\t", "TIME DURATION\t", "DISTANCE" );
 
-sub table_display_1{
-       my  $district1=$_[0];
-       my $district2=$_[1];
-       my $hour=$_[2];
-       my $min=$_[3];
-       my $distance=$_[4];
-    # my $header_ref="START:END\t","TIME DURATION\t","DISTANCE";
-   # my $data_ref=["$district1:$district2\t","$hour hour $min min\t","$distance km"];
-      use Text::Table;
-    my $tb = Text::Table->new("START:END\t","TIME DURATION\t","DISTANCE");
-        
-    $tb->load(["$district1:$district2\t","$hour hour $min min\t","$distance km"]);
+    $tb->load(
+        [ "$district1:$district2\t", "$hour hour $min min\t", "$distance km" ]
+    );
     print $tb;
-    csv_write($district1,$district2,$hour,$min,$distance);
-    
- }
+    csv_write( $district1, $district2, $hour, $min, $distance );
+
+}
 
 sub csv_write {
-   my $district1      = $_[0];
- my $district2  = $_[1];
- my $hour      = $_[2];
- my $min       = $_[3];
- my $distance= $_[4];
-print "$distance\n";
- use Text::CSV;
- use Text::Table;
+    my $district1 = $_[0];
+    my $district2 = $_[1];
+    my $hour      = $_[2];
+    my $min       = $_[3];
+    my $distance  = $_[4];
+    print "$distance\n";
+    use Text::CSV;
+    use Text::Table;
 
-
-my $csv = Text::CSV_XS->new({ sep_char => ',', eol => "\n" });
-     my  $file_path="/home/dyro/practice/project/Apr28/";
+    my $csv = Text::CSV_XS->new( { sep_char => ',', eol => "\n" } );
+    my $file_path = "/home/dyro/practice/project/Apr28/";
     open( my $fh, '>>:encoding(UTF-8)', "DisOut.csv" )
-            or die "could not open  the file '$file_path'$!";
+      or die "could not open  the file '$file_path'$!";
 
-$csv->print( $fh, ["START:END\t","TIME DURATION\t","DISTANCE"]);
-$csv->print( $fh, ["$district1:$district2\t","$hour hour $min min\t","$distance km" ] );
+    $csv->print( $fh, [ "START:END\t", "TIME DURATION\t", "DISTANCE" ] );
+    $csv->print( $fh,
+        [ "$district1:$district2\t", "$hour hour $min min\t", "$distance km" ]
+    );
 
-close $fh;
-
-
-
-
+    close $fh;
 
 }
-
-
-
-
 
 sub sub_question1 {
     my $district  = $_[0];
@@ -482,66 +472,63 @@ sub sub_question1 {
     my $ref_add = $data_structure{$district};
 
     my $ref_add1 = $data_structure{$district1};
-    
 
-        my $hour_min_1 = $ref_add->[0];
+    my $hour_min_1 = $ref_add->[0];
 
-        my @hour_min_1 = split /:/, $hour_min_1;
+    my @hour_min_1 = split /:/, $hour_min_1;
 
-        my $hour_min_2 = $ref_add1->[0];
+    my $hour_min_2 = $ref_add1->[0];
 
-        my @hour_min_2 = split /:/, $hour_min_2;
+    my @hour_min_2 = split /:/, $hour_min_2;
 
-        my $hour1 = $hour_min_1[0];
-        my $hour2 = $hour_min_2[0];
-        my $min1  = $hour_min_1[1];
+    my $hour1 = $hour_min_1[0];
+    my $hour2 = $hour_min_2[0];
+    my $min1  = $hour_min_1[1];
 
-        my $min2 = $hour_min_2[1];
-        my $min;
-        my $hour;
-        my $distance;
-        if ( $hour1 >= $hour2 ) {
-            $hour = $hour1 - $hour2;
-            if ( $min1 >= $min2 ) {
-                 $min = $min1 - $min2;
-                print
+    my $min2 = $hour_min_2[1];
+    my $min;
+    my $hour;
+    my $distance;
+    if ( $hour1 >= $hour2 ) {
+        $hour = $hour1 - $hour2;
+        if ( $min1 >= $min2 ) {
+            $min = $min1 - $min2;
+            print
 "Duration of journey between $district and $district1 is:$hour hour and $min min\n";
-
-            }
-            else {
-                 $min = $min2 - $min1;
-                print
-"Duration of journey between $district1 and $district is:$hour hour and $min min\n";
-
-            }
 
         }
         else {
-
-            $hour = $hour2 - $hour1;
-            if ( $min1 >= $min2 ) {
-                 $min = $min1 - $min2;
-                print
-"Duration of journey between $district and $district1 is:$hour hour and $min min\n";
-
-            }
-            else {
-                 $min = $min2 - $min1;
-                print
+            $min = $min2 - $min1;
+            print
 "Duration of journey between $district1 and $district is:$hour hour and $min min\n";
 
-            }
+        }
+
+    }
+    else {
+
+        $hour = $hour2 - $hour1;
+        if ( $min1 >= $min2 ) {
+            $min = $min1 - $min2;
+            print
+"Duration of journey between $district and $district1 is:$hour hour and $min min\n";
 
         }
-      
-      
-my  %param=(
-     "hour"=>"$hour",    
-     "min"=>"$min"
-       );
-   return \%param;   
-       
-    
+        else {
+            $min = $min2 - $min1;
+            print
+"Duration of journey between $district1 and $district is:$hour hour and $min min\n";
+
+        }
+
+    }
+
+    my %param = (
+        "hour" => "$hour",
+        "min"  => "$min"
+    );
+    return \%param;
+
 }
 
 sub sub_question2 {
@@ -552,53 +539,44 @@ sub sub_question2 {
 
     my $ref_add1 = $data_structure{$district1};
 
-    
+    my $input_index1;
+    my $input_index2;
+    foreach my $i ( 0 .. $#distance ) {
 
-        my $input_index1;
-        my $input_index2;
-        foreach my $i ( 0 .. $#distance ) {
-
-            if ( $distance[$i] == $ref_add->[1] ) {
-                $input_index1 = $i;
-
-            }
-
-            if ( $distance[$i] == $ref_add1->[1] ) {
-                $input_index2 = $i;
-
-            }
+        if ( $distance[$i] == $ref_add->[1] ) {
+            $input_index1 = $i;
 
         }
 
-        my $total_distance = 0;
-
-        if ( $input_index1 > $input_index2 ) {
-            foreach my $i ( $input_index2 + 1 .. $input_index1 ) {
-                $total_distance = $total_distance + $distance[$i];
-
-            }
-            print
-              "distance between $district and $district1=$total_distance km\n";
+        if ( $distance[$i] == $ref_add1->[1] ) {
+            $input_index2 = $i;
 
         }
-        else {
-            foreach my $i ( $input_index1 + 1 .. $input_index2 ) {
-                $total_distance = $total_distance + $distance[$i];
 
-            }
-            print
-              "distance between $district and $district1=$total_distance km\n";
+    }
+
+    my $total_distance = 0;
+
+    if ( $input_index1 > $input_index2 ) {
+        foreach my $i ( $input_index2 + 1 .. $input_index1 ) {
+            $total_distance = $total_distance + $distance[$i];
 
         }
-        
+        print "distance between $district and $district1=$total_distance km\n";
 
-    
-    my %param=(
-       "distance"=>"$total_distance"
-       );
-  
-  return \%param;      
-       
-    
+    }
+    else {
+        foreach my $i ( $input_index1 + 1 .. $input_index2 ) {
+            $total_distance = $total_distance + $distance[$i];
+
+        }
+        print "distance between $district and $district1=$total_distance km\n";
+
+    }
+
+    my %param = ( "distance" => "$total_distance" );
+
+    return \%param;
+
 }
 
