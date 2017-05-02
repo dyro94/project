@@ -1,0 +1,20 @@
+START:END,Distance,"Duraion of Journey","TIME Of Arrival"
+Bangalore:TUMKUR,NA,NA:NA,01:30
+START:END,Distance,"Duraion of Journey","TIME Of Arrival"
+Bangalore:TUMKUR,70,NA:NA,NA
+START:END,Distance,"Duraion of Journey","TIME Of Arrival"
+Bangalore:TUMKUR,NA,01:30,NA
+START:END,Distance,"Duraion of Journey","TIME Of Arrival"
+Bangalore:TUMKUR,70,01:30,01:30
+START:END,Distance,"Duraion of Journey","TIME Of Arrival"
+Bangalore:HUBLI,NA,NA:NA,11:00
+START:END,Distance,"Duraion of Journey","TIME Of Arrival"
+Bangalore:HUBLI,556,NA:NA,NA
+START:END,Distance,"Duraion of Journey","TIME Of Arrival"
+Bangalore:HUBLI,NA,11:00,NA
+START:END,Distance,"Duraion of Journey","TIME Of Arrival"
+BANGALORE:TUMKUR,70,01:30,01:30
+START:END,Distance,"Duraion of Journey","TIME Of Arrival"
+BANGALORE:HUBLI,NA,NA:NA,11:00
+"START:END	","TIME DURATION	",DISTANCE
+"BANGALORE:HUBLI	","NA hour NA min	","556 km"
