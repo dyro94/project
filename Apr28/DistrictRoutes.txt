@@ -1,0 +1,3 @@
+Bangalore;Tumkur;Shimoga;Davangere;Hubli;Dharwad;Belgaum
+00:00;01:30;05:30;08:30;11:00;11:40;13:00
+0;70;243;92;151;18;77
