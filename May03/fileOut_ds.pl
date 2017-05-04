@@ -9,37 +9,29 @@ iii) Take input from user and print the details of particular input
           physical id ->  0
           size ->7852MiB
 =cut
-
-
-
-
-
-
-
 use strict;
 use warnings;
 
 
-=pod
+
 my $filename='output.txt';
-open (my $fh ,'>',$filename) or die "could not open the file '$filename'$!";
+open (my $fh ,'>',$filename) or die "could not open the file $filename$!";
 close $fh;
 `lshw > output.txt`;
-=cut
 
-open my $fh1, '<', "output.txt" or die "can't read file 'filename'[$!]\n";
+open my $fh1, '<', "output.txt" or die "can't read file filename[$!]\n";
 my $document = do { local $/; <$fh1> };
 
 close $fh1;
-my @array = split( '\*-', $document );
+my @split_element = split( '\*-', $document );
 my $char = "\n";
-my %data_structure;
-foreach my $i ( 0 .. $#array ) {
+my %key_value;
+foreach my $i ( 0 .. $#split_element ) {
 
-    my $index = index( $array[$i], $char );
+    my $index = index( $split_element[$i], $char );
 
-    my $key = substr( $array[$i], 0, $index );
-    $data_structure{"$key"} = "$array[$i]";
+    my $key = substr( $split_element[$i], 0, $index );
+    $key_value{"$key"} = "$split_element[$i]";
 
 }
 close $fh1;
@@ -56,13 +48,15 @@ sub info_1 {
         exit;
     }
 
-    sub info {
+   info();
+}
+ sub info {
         print "enter your query\n";
         my $user_input = <>;
 
         chomp($user_input);
-        if ( $data_structure{"$user_input"} ) {
-            print $data_structure{"$user_input"}, "\n";
+        if ( $key_value{"$user_input"} ) {
+            print $key_value{"$user_input"}, "\n";
 
         }
         else {
@@ -71,4 +65,4 @@ sub info_1 {
         info_1();
 
     }
-}
+
