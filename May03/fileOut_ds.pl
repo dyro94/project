@@ -1,3 +1,21 @@
+=pod
+i) Dump the "lshw" linux command output into a file.
+ii) Read the file and form a DS
+iii) Take input from user and print the details of particular input
+  eg: 
+  Input: memory
+  Output:
+          description -> System memory
+          physical id ->  0
+          size ->7852MiB
+=cut
+
+
+
+
+
+
+
 use strict;
 use warnings;
 
