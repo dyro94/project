@@ -12,48 +12,45 @@ use Scalar::Util qw(reftype);
 print "Enter the Credit Card no:-\n";
 my $user_input = <>;
 chomp($user_input);
-if ( $user_input =~ /\d{4}-\d{4}-\d{4}-\d{4}/ ) {
+if ( $user_input =~ /^(\d{4}-\d{4}-\d{4}-\d{4})$/ ) {
     $user_input =~ s/-//g;
     my @split_each_char = split( //, $user_input );
 
     #print " @split_each_char\n";
     
-    my $string_con;
+    
     my $grand_total1 = 0;
     my $grand_total2 = 0;
     my $grand_total  = 0;
     my $double;
     my $total  = 0;
     my $total1 = 0;
+    my $tot=0;
 
-    foreach my $i ( 0 .. $#split_each_char ) {
+    foreach my $i ( 0.. $#split_each_char ) {
         
-        my $int_value = $split_each_char[$i] + 1 - 1;
+        my $int_value = $split_each_char[$i]+1-1;
+          
 
         if ( $i % 2 == 0 ) {
-            $double = $int_value + $int_value;
+            $double = $int_value*2;
+            
 
-            if ( $double =~ /\d{2}/ ) {
-                $string_con = "$double";
-                my @digit = split( //, $string_con );
-
-                my $int;
-                my $temp;
-                foreach my $i ( 0 .. $#digit ) {
-                    $temp = $digit[$i];
-                    $int  = $temp + 1 - 1;
-
-                    $total = $total + $int;
-
-                }
-
+               if ( $double=~/\d{2}/ ) {
+               
+                my @digit = split( //, $double );
+                     
+               $total = $digit[0] + $digit[1];
+                 
+                
+                  $tot=$tot+$total
             }
             else {
 
                 $total1 = $total1 + $double;
 
             }
-            $grand_total1 = $total + $total1;
+            $grand_total1 = $tot + $total1;
 
         }
         else {
@@ -63,7 +60,7 @@ if ( $user_input =~ /\d{4}-\d{4}-\d{4}-\d{4}/ ) {
 
     }
     $grand_total = $grand_total1 + $grand_total2;
-    print "$grand_total\n";
+    print "grand total:$grand_total\n";
     if ( $grand_total % 10 == 0 ) {
         print "Valid Credit Card\n";
     }
