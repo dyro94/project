@@ -1,5 +1,5 @@
 
-=potring_con;
+=pod
 
 2. Credit Card validation ( XXXX-XXXX-XXXX-XXXX -> Read about credit cards and actual numbers they can contain )
     - Print "Valid Card" or "Invalid Card"
