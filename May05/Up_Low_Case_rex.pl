@@ -11,8 +11,8 @@ print "ENTER THE STRING!!------>\n";
 
 my $user_input=<>;
 if ($user_input=~/(^[A-Z])/){
-    print "first character  $1 is uppercase\n";
+    print "True-uppercase character is $1\n";
 }else {
-   print "first character is lowercase \n";
+   print "False-first character is lowercase \n";
 }
    
