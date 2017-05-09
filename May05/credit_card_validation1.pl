@@ -17,33 +17,29 @@ if ( $user_input =~ /^(\d{4}-\d{4}-\d{4}-\d{4})$/ ) {
     my @split_each_char = split( //, $user_input );
 
     #print " @split_each_char\n";
-    
-    
+
     my $grand_total1 = 0;
     my $grand_total2 = 0;
     my $grand_total  = 0;
     my $double;
     my $total  = 0;
     my $total1 = 0;
-    my $tot=0;
+    my $tot    = 0;
 
-    foreach my $i ( 0.. $#split_each_char ) {
-        
-        my $int_value = $split_each_char[$i]+1-1;
-          
+    foreach my $i ( 0 .. $#split_each_char ) {
+
+        my $int_value = $split_each_char[$i] + 1 - 1;
 
         if ( $i % 2 == 0 ) {
-            $double = $int_value*2;
-            
+            $double = $int_value * 2;
 
-               if ( $double=~/\d{2}/ ) {
-               
+            if ( $double >= 10 ) {
+
                 my @digit = split( //, $double );
-                     
-               $total = $digit[0] + $digit[1];
-                 
-                
-                  $tot=$tot+$total
+
+                $total = $digit[0] + $digit[1];
+
+                $tot = $tot + $total;
             }
             else {
 

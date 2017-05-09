@@ -14,5 +14,5 @@ my $user_input = <>;
 chomp($user_input);
 $user_input =~ s/^\s+|\s+$//g;
 $user_input =~ s/\s+/ /g;
-$user_input=~s/"\n"/\s/;
+$user_input =~ s/"\n"/\s/;
 print "$user_input\n";

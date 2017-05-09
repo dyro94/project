@@ -17,7 +17,7 @@ if ( $user_input =~ /\d{4}-\d{4}-\d{4}-\d{4}/ ) {
     my @split_each_char = split( //, $user_input );
 
     #print " @split_each_char\n";
-    
+
     my $string_con;
     my $grand_total1 = 0;
     my $grand_total2 = 0;
@@ -27,7 +27,7 @@ if ( $user_input =~ /\d{4}-\d{4}-\d{4}-\d{4}/ ) {
     my $total1 = 0;
 
     foreach my $i ( 0 .. $#split_each_char ) {
-        
+
         my $int_value = $split_each_char[$i] + 1 - 1;
 
         if ( $i % 2 == 0 ) {
