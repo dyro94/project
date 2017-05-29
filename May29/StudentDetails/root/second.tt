@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="redirect_first_page">
+  Roll Number:<br>
+  <input type="text" name="RN">
+  <br>
+  First name:<br>
+  <input type="text" name="firstname">
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname" >
+  
+  <br>Date Of Birth :<br>
+  <input type="text" name="DOB" >
+  <br><br>
+  <br>Gender :<br>
+  <input type="text" name="gen" >
+  <br><br>
+   <br>Address :<br>
+  <input type="text" name="add" >
+  <br><br>
+   <br>E-Mail:<br>
+  <input type="text" name="mail" >
+  <br><br>
+  <br>Nationality :<br>
+  <input type="text" name="nat" >
+  <br><br>
+   <br>Phone No:<br>
+  <input type="text" name="ph" >
+  <br><br>
+  
+  
+  <button type="submit" id="myButton" value="Submit">Save</button>
+  </form> 
+  <form action="redirect_first_p_cancel">
+  <button type="submit"  value="Submit">cancel</button>
+  </form>
+
+
+</body>
+</html>

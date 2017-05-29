@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<form action="final_display">
+  Enter The First Name:<br>
+  <input type="text" name="firstname">
+  <br><br>
+  <button type="submit" id="myButton" value="Submit">Search</button>
+  
+  </form> 
+  
+</body>
+</html>

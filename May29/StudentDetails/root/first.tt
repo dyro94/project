@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<style>
+.button1 {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+</style>
+</head>
+
+<center><body bgcolor="#BDB76B">
+<center><div id="mydiv" style="width:200px;background:white" onmouseover="this.style.background='gray';" onmouseout="this.style.background='white';">
+<center><form action= "second_page" >
+ <input type="submit" value="Add Student" class="button1">
+ </form></center>
+ <br><br>
+<center> <form action= "third_page" >
+ <input type="submit" value="Show" class="button">
+ </form></center>
+ </div></center>
+ 
+ </body>
+
+ 
+</body>
+</html>
