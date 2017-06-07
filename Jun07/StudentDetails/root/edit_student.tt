@@ -1,0 +1,121 @@
+<style>
+.button1 {
+    background-color:#00FA9A; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.button {
+    background-color: #CD853F;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+.add_studentbox {
+
+width:30%;
+height: auto;
+float:left;
+background:#0000FF;
+border-width: 2px; 
+border-style:solid;
+border-color:red;
+position: relative;
+
+}
+.invalid_msg {
+float:right;
+width:30%;
+height: auto;
+position: relative;
+}
+.err_msg {
+               color:red;
+              }
+.page_struc {
+  width: 100%;
+  height:auto;
+  background-color: lightblue;
+  position: absolute;
+ 
+
+      }
+
+</style>
+<div class ="page_struc">
+<div class="add_studentbox">
+<center><form action="/studentinfo/store_edit_student/" method="POST">
+  <br><br>
+  
+  <input type="hidden" name="RN" value="[%student_id%]">
+  <br>
+  
+  First name:<br>
+  <input type="text" name="firstname" value="[%first_name%]">
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname" value="[%last_name%]">
+   <br>
+   Date Of Birth :<br>
+  <input type="text" name="DOB" value="[%date_of_birth%]" >
+    <br> 
+   Gender :<br>
+  <input type="text" name="gen" value="[%gender%]">
+  <br>
+   Address :<br>
+  <input type="text" name="add" value="[%address%]">
+  <br>
+   E-Mail:<br>
+  <input type="text" name="mail" value="[%email%]">
+  <br>
+  Nationality :<br>
+  <input type="text" name="nat" value="[%nationality%]">
+  <br>
+   Phone No:<br>
+  <input type="text" name="ph" value="[%phone%]">
+  <br><br>
+  
+  
+  <button type="submit" class="button1" value="Submit">Edit</button>
+  </form></center> 
+  <center><form action="/studentinfo/cancel_storage/">
+  <button type="submit" class="button" value="Submit">cancel</button>
+  </form><center>
+  </div>
+  
+   <div class="invalid_msg">
+   <span class="err_msg">[% roll_error_msg %]</span>
+   <br><br>
+   <span class="err_msg">[% first_error_msg %]</span>
+   <br><br>
+    <span class="err_msg">[% last_error_msg%]</span>
+    <br><br>
+     <span class="err_msg">[% dob_error_msg %]</span>
+   <br><br>
+     <span class="err_msg">[% gen_error_msg %]</span>
+    <br><br>
+     <span class="err_msg">[% add_error_msg %]</span>
+    <br><br>
+    <span class="err_msg">[% mail_error_msg %]</span>
+    <br><br>
+    <span class="err_msg">[% nat_error_msg %]</span>
+    <br><br>
+    <span class="err_msg">[% ph_error_msg %]</span>
+    <br><br>
+     </div>
+     </div>
+
+    
+   
+
+

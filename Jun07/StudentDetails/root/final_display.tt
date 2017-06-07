@@ -1,0 +1,79 @@
+
+<style>
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover{background-color:#f5f5f5}
+
+.button {
+    background-color: #00FFFF;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+
+
+</style>
+
+<table>
+ <tr>
+    <th>STUDENT ID</th>
+    <th>FIRST NAME</th>
+    <th>LAST NAME</th>
+    <th>Date Of Birth</th>
+     <th>Gender</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Nationality</th>
+       <th>Phone Number</th>
+       <th>Delete Student</th>
+       <th>Edit Student</th>
+  </tr>
+[% FOREACH STU  IN ds.keys %]
+
+  <tr>
+    <td>[%ds.$STU.student_id%]</th>
+    <td>[% ds.$STU.first_name %]</td>
+    <td>[% ds.$STU.last_name%]</td>
+     <td>[%ds.$STU.date_of_birth%]</td>
+     <td>[% ds.$STU.gender%]</td>
+      <td>[% ds.$STU.address%]
+     <td>[% ds.$STU.email%]</td>
+     <td>[% ds.$STU.nationality%]</td>
+     <td>[% ds.$STU.phone_no%]</td>
+     <td><form action="/studentinfo/delete_student_info" method="POST">
+     <input type = "hidden" name = "student_id" value = "[%ds.$STU.student_id%]" />
+      <button type="submit" class="button" value="Submit">DELETE</button>
+     </form>
+     </td>
+     <td><form action="/studentinfo/edit_student" method="POST">
+     <input type = "hidden" name = "student_id" value = "[%ds.$STU.student_id%]" />
+      <button type="submit" class="button" value="Submit">EDIT</button>
+     </form>
+     </td>
+  </tr>
+
+
+
+[% END %]
+</table>
+<form action="/studentinfo/add_show">
+<input type="submit" value="Go Back" class="button">
+</form>
+<br>
+<span class="succ_msg">[% status_msg || c.flash.status_msg%]</span>
