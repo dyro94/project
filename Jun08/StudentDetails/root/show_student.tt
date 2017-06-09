@@ -1,0 +1,49 @@
+<style>
+    .button {
+        background-color: #D3D3D3;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+    .button1 {
+        background-color:#FA8072;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }   
+
+    .Search_studentbox {
+
+        width: 300px;
+        height: 300px;
+        background: #B0C4DE;
+    }
+    .err_msg {
+               color:red;
+              }
+        
+</style>
+
+<center>
+    <div class="Search_studentbox">
+        <br><br>
+        <form action="search_student" method="POST">
+            Enter The First Name:<br>
+            <input type="text" name="firstname">
+            <br><br>
+            <button type="submit" class="button" value="Submit">Search</button>
+            <br><br><br>
+            <form action="/studentinfo/add_show">
+            <input type="submit" value="Go Back" class="button1">
+</form>
+    </div>
+</center>
+<center><span class="err_msg">[% search_err_msg%]</span></center>

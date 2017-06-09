@@ -1,0 +1,18 @@
+# Student Information Store and Display
+
+## Basic useful feature list:
+
+*  StudentInfo is the controller for entire project
+* add_show action will direct you to index page where you two option 1>add student 2>display student
+* add_student action will take data form Form and store it to Database
+* show_student action will Search particular student from Database
+* store_into_db action will store student info into database and redirect to add_show page
+* search_student action will search the student and display details and redirect to add_show  page
+* delete_student_info action will search the student with specific name  and delete detail
+* refresh_final_display action will display the updated student table information
+* edit_student action will display the edit form with predefined values  
+### Stuff used to make this:
+* [cpan](https://www.cpan.org/) for perl and catalyst refrence
+
+
+
